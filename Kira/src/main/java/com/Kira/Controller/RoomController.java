@@ -1,5 +1,6 @@
 package com.Kira.Controller;
 
+<<<<<<< HEAD
 import com.Kira.Entity.Model.Room;
 import com.Kira.Service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,3 +54,10 @@ public class RoomController {
         return roomService.leaveRoom(id);
     }
 }
+=======
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class RoomController {
+}
+>>>>>>> 1522d02 (basic configuration)

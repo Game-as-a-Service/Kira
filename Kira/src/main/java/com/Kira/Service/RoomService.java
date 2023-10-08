@@ -1,5 +1,6 @@
 package com.Kira.Service;
 
+<<<<<<< HEAD
 import com.Kira.Entity.Model.Room;
 import com.Kira.Entity.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -91,4 +92,10 @@ public class RoomService {
         roomRepository.save(roomEntity);
         return "success";
     }
+=======
+import org.springframework.stereotype.Service;
+
+@Service
+public class RoomService {
+>>>>>>> 1522d02 (basic configuration)
 }
