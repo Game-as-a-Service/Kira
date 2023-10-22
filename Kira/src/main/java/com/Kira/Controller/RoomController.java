@@ -1,6 +1,7 @@
 package com.Kira.Controller;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.Kira.Entity.Model.Room;
 import com.Kira.Service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +57,11 @@ public class RoomController {
 }
 =======
 import org.springframework.stereotype.Controller;
+=======
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> 6d4fdec (add some services)
 
-@Controller
+@RestController
 public class RoomController {
 }
 >>>>>>> 1522d02 (basic configuration)
