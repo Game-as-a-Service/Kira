@@ -4,7 +4,6 @@ import com.Kira.Entity.Model.Room;
 import com.Kira.Entity.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.List;
@@ -24,7 +23,6 @@ public class RoomService {
 
     public String createRoom(Room room) {
         Room roomEntity = new Room();
-        roomEntity.setId(room.getId());
         roomEntity.setTotalNumber(room.getTotalNumber());
         roomEntity.setCurrentNumber(room.getCurrentNumber());
         roomEntity.setHasPassword(room.getHasPassword());
@@ -40,10 +38,11 @@ public class RoomService {
     }
 
     public String updateRoomById(String id, Room room) {
-        Optional<Room> roomEntity = roomRepository.findById(id);
-        if (roomEntity.isEmpty()) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
             return "failed";
         }
+        Room roomEntity = roomEntityOptional.get();
         roomEntity.setTotalNumber(room.getTotalNumber());
         roomEntity.setCurrentNumber(room.getCurrentNumber());
         roomEntity.setHasPassword(room.getHasPassword());
