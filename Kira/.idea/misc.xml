@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 >>>>>>> 1522d02 (basic configuration)
+=======
+>>>>>>> 9036ed5 (basic crud apis)
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
