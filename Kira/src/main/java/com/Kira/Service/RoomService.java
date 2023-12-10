@@ -94,6 +94,7 @@ public class RoomService {
         roomRepository.save(roomEntity);
         return "success";
     }
+<<<<<<< HEAD
 =======
 =======
 import com.Kira.Entity.Model.Room;
@@ -156,4 +157,6 @@ public class RoomService {
         return "success";
     }
 >>>>>>> 6d4fdec (add some services)
+=======
+>>>>>>> ce2e92a (update room apis)
 }

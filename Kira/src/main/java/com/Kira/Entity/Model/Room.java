@@ -39,6 +39,7 @@ public class Room {
     private String password;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Enumerated(EnumType.STRING)
     private statusType status = statusType.WAITING;
 
@@ -52,4 +53,14 @@ public class Room {
 
     private Integer gameId;
 >>>>>>> 1522d02 (basic configuration)
+=======
+    @Enumerated(EnumType.STRING)
+    private statusType status = statusType.WAITING;
+
+    private Integer gameId;
+
+    public enum statusType {
+        WAITING, PLAYING, END
+    }
+>>>>>>> ce2e92a (update room apis)
 }

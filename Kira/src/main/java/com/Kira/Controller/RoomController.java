@@ -58,6 +58,7 @@ public class RoomController {
     public String leaveRoom(@PathVariable String id) {
         return roomService.leaveRoom(id);
     }
+<<<<<<< HEAD
 }
 =======
 import org.springframework.stereotype.Controller;
@@ -102,3 +103,6 @@ public class RoomController {
     }
 }
 >>>>>>> 9036ed5 (basic crud apis)
+=======
+}
+>>>>>>> ce2e92a (update room apis)
