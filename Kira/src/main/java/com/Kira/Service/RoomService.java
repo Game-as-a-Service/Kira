@@ -52,4 +52,43 @@ public class RoomService {
         roomRepository.save(roomEntity);
         return "success";
     }
+
+    public String updateRoomStatus(String id, String status) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        roomEntity.setStatus(Room.statusType.valueOf(status));
+        roomRepository.save(roomEntity);
+        return "success";
+    }
+
+    public String enterRoom(String id , String password) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        if (roomEntity.getHasPassword() && !roomEntity.getPassword().equals(password)) {
+            return "failed";
+        }
+        if (roomEntity.getStatus() != Room.statusType.WAITING) {
+            return "failed";
+        }
+        roomEntity.setCurrentNumber(roomEntity.getCurrentNumber() + 1);
+        roomRepository.save(roomEntity);
+        return "success";
+    }
+
+    public String leaveRoom(String id) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        roomEntity.setCurrentNumber(roomEntity.getCurrentNumber() - 1);
+        roomRepository.save(roomEntity);
+        return "success";
+    }
 }

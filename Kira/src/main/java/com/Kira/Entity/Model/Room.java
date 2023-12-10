@@ -21,7 +21,12 @@ public class Room {
 
     private String password;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private statusType status = statusType.WAITING;
 
     private Integer gameId;
+
+    public enum statusType {
+        WAITING, PLAYING, END
+    }
 }

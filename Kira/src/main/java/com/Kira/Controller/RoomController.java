@@ -37,4 +37,19 @@ public class RoomController {
     public String updateRoomById(@PathVariable String id, @RequestBody Room room) {
         return roomService.updateRoomById(id, room);
     }
+
+    @PutMapping("/room/{id}/status")
+    public String updateRoomStatusById(@PathVariable String id, @RequestBody String status) {
+        return roomService.updateRoomStatus(id, status);
+    }
+
+    @PutMapping("/room/{id}/enter")
+    public String enterRoom(@PathVariable String id, String password) {
+        return roomService.enterRoom(id, password);
+    }
+
+    @PutMapping("/room/{id}/leave")
+    public String leaveRoom(@PathVariable String id) {
+        return roomService.leaveRoom(id);
+    }
 }
