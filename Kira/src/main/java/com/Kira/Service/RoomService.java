@@ -102,4 +102,15 @@ public class RoomService {
         roomRepository.save(roomEntity);
         return "success";
     }
+
+    public String updateRoomGameById(String id, String gameId) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        roomEntity.setGameId(Integer.parseInt(gameId));
+        roomRepository.save(roomEntity);
+        return "success";
+    }
 }

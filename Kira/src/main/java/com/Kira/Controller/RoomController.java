@@ -47,6 +47,12 @@ public class RoomController {
     public String leaveRoom(@PathVariable String id) {
         return roomService.leaveRoom(id);
     }
+
+    @PatchMapping("/room/{id}/game")
+    public String updateRoomGameById(@PathVariable String id, @RequestBody String gameId) {
+        return roomService.updateRoomGameById(id, gameId);
+    }
+
     @GetMapping("/room/{id}")
     public Optional<Room> getRoomById(@PathVariable String id) {
         return roomService.getRoomById(id);
