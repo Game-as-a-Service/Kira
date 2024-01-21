@@ -3,8 +3,12 @@ package com.Kira.Controller;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9036ed5 (basic crud apis)
+=======
+import com.Kira.Entity.Model.Game;
+>>>>>>> c883b63 (set and get game by room)
 import com.Kira.Entity.Model.Room;
 import com.Kira.Service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,20 +48,26 @@ public class RoomController {
         return roomService.updateRoomById(id, room);
     }
 
-    @PutMapping("/room/{id}/status")
+    @PatchMapping("/room/{id}/status")
     public String updateRoomStatusById(@PathVariable String id, @RequestBody String status) {
         return roomService.updateRoomStatus(id, status);
     }
 
-    @PutMapping("/room/{id}/enter")
-    public String enterRoom(@PathVariable String id, String password) {
+    @PatchMapping("/room/{id}/password")
+    public String updateRoomPasswordById(@PathVariable String id, @RequestBody String password) {
+        return roomService.updateRoomPassword(id, password);
+    }
+
+    @PatchMapping("/room/{id}/enter")
+    public String enterRoom(@PathVariable String id, @RequestBody String password) {
         return roomService.enterRoom(id, password);
     }
 
-    @PutMapping("/room/{id}/leave")
+    @PatchMapping("/room/{id}/leave")
     public String leaveRoom(@PathVariable String id) {
         return roomService.leaveRoom(id);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 }
 =======
@@ -106,3 +116,16 @@ public class RoomController {
 =======
 }
 >>>>>>> ce2e92a (update room apis)
+=======
+
+    @GetMapping("/room/{id}/game")
+    public Optional<Game> getGameByRoomId(@PathVariable String id) {
+        return roomService.getGameByRoomId(id);
+    }
+
+    @PostMapping("/room{id}/game")
+    public String setGameByRoom(@PathVariable String id, @RequestBody String gameId) {
+        return roomService.setGameByRoomId(id, gameId);
+    }
+}
+>>>>>>> c883b63 (set and get game by room)

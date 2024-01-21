@@ -1,10 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 >>>>>>> 1522d02 (basic configuration)
 =======
 >>>>>>> 9036ed5 (basic crud apis)
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+>>>>>>> c883b63 (set and get game by room)
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -13,6 +17,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK" />
 </project>
