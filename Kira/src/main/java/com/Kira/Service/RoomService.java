@@ -53,6 +53,17 @@ public class RoomService {
         return "success";
     }
 
+    public String updateRoomPassword(String id, String password) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        roomEntity.setPassword(password);
+        roomRepository.save(roomEntity);
+        return "success";
+    }
+
     public String updateRoomStatus(String id, String status) {
         Optional<Room> roomEntityOptional = roomRepository.findById(id);
         if (roomEntityOptional.isEmpty()) {

@@ -23,6 +23,30 @@ public class RoomController {
         return roomService.getAllRooms();
     }
 
+    @PutMapping("/room/{id}")
+    public String updateRoomById(@PathVariable String id, @RequestBody Room room) {
+        return roomService.updateRoomById(id, room);
+    }
+
+    @PatchMapping("/room/{id}/password")
+    public String updateRoomPassword(@PathVariable String id, @RequestBody String password) {
+        return roomService.updateRoomPassword(id, password);
+    }
+
+    @PatchMapping("/room/{id}/status")
+    public String updateRoomStatusById(@PathVariable String id, @RequestBody String status) {
+        return roomService.updateRoomStatus(id, status);
+    }
+
+    @PatchMapping("/room/{id}/enter")
+    public String enterRoom(@PathVariable String id, @RequestBody String password) {
+        return roomService.enterRoom(id, password);
+    }
+
+    @PatchMapping("/room/{id}/leave")
+    public String leaveRoom(@PathVariable String id) {
+        return roomService.leaveRoom(id);
+    }
     @GetMapping("/room/{id}")
     public Optional<Room> getRoomById(@PathVariable String id) {
         return roomService.getRoomById(id);
@@ -31,25 +55,5 @@ public class RoomController {
     @DeleteMapping("/room/{id}")
     public void deleteRoomById(@PathVariable String id) {
         roomService.deleteRoomById(id);
-    }
-
-    @PutMapping("/room/{id}")
-    public String updateRoomById(@PathVariable String id, @RequestBody Room room) {
-        return roomService.updateRoomById(id, room);
-    }
-
-    @PutMapping("/room/{id}/status")
-    public String updateRoomStatusById(@PathVariable String id, @RequestBody String status) {
-        return roomService.updateRoomStatus(id, status);
-    }
-
-    @PutMapping("/room/{id}/enter")
-    public String enterRoom(@PathVariable String id, String password) {
-        return roomService.enterRoom(id, password);
-    }
-
-    @PutMapping("/room/{id}/leave")
-    public String leaveRoom(@PathVariable String id) {
-        return roomService.leaveRoom(id);
     }
 }
