@@ -1,5 +1,7 @@
 package com.Kira.Service;
 
+import com.Kira.Entity.GameRepository;
+import com.Kira.Entity.Model.Game;
 import com.Kira.Entity.Model.Room;
 import com.Kira.Entity.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final GameRepository gameRepository;
 
     public Optional<Room> getRoomById(String id) {
         return roomRepository.findById(id);
@@ -64,6 +67,17 @@ public class RoomService {
         return "success";
     }
 
+    public String updateRoomPassword(String id, String password) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        roomEntity.setPassword(password);
+        roomRepository.save(roomEntity);
+        return "success";
+    }
+
     public String enterRoom(String id , String password) {
         Optional<Room> roomEntityOptional = roomRepository.findById(id);
         if (roomEntityOptional.isEmpty()) {
@@ -88,6 +102,26 @@ public class RoomService {
         }
         Room roomEntity = roomEntityOptional.get();
         roomEntity.setCurrentNumber(roomEntity.getCurrentNumber() - 1);
+        roomRepository.save(roomEntity);
+        return "success";
+    }
+
+    public Optional<Game> getGameByRoomId(String id) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return Optional.empty();
+        }
+        Room roomEntity = roomEntityOptional.get();
+        return gameRepository.findById(roomEntity.getGameId());
+    }
+
+    public String setGameByRoomId(String id, String gameId) {
+        Optional<Room> roomEntityOptional = roomRepository.findById(id);
+        if (roomEntityOptional.isEmpty()) {
+            return "failed";
+        }
+        Room roomEntity = roomEntityOptional.get();
+        roomEntity.setGameId(Integer.valueOf(gameId));
         roomRepository.save(roomEntity);
         return "success";
     }
