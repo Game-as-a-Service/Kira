@@ -16,6 +16,7 @@ public class Game {
 
     private Integer playNumber;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private ArrayList<Player> players;
 
     private String winner;
